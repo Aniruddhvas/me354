@@ -1146,20 +1146,13 @@ function editMaterial(base, v) {
 STATIC_VIEWS.about = (v) => {
   if (v.dataset.built) return;
   v.dataset.built = '1';
-  const base = location.href.split('#')[0].split('?')[0];
   v.append(
     h('div', { class: 'mhd' }, h('div', null, h('div', { class: 'eyebrow' }, 'About'), h('h1', null, 'About ME 354 Mechanics Lab'))),
-    h('div', { class: 'two' },
-      h('div', { class: 'panel' }, h('h3', null, 'Credits'),
-        h('p', null, 'Built for ME 354 Mechanics of Materials in the Department of Mechanical Engineering, University of Washington, taught by Prof. Aniruddh Vashisth.'),
-        h('p', null, 'The modules follow the ME 354 course notes written by Prof. Lucas R. Meza. Equation and section numbers refer to those notes.'),
-        h('p', { class: 'note' }, 'Material properties are typical values for teaching. Do not use them as design allowables.')),
-      h('div', { class: 'panel' }, h('h3', null, 'Using this site in a course page'),
-        h('p', null, 'Each module has its own link. Add ', h('span', { class: 'mono' }, '#embed-<module>'), ' or ', h('span', { class: 'mono' }, '?embed=1'), ' to show one module without the menu, which suits an embed on Google Sites or Canvas.'),
-        h('div', { class: 'kv' }, CATALOG.filter(c => c.live && c.id !== 'materials').map(c => h('div', null, h('span', null, c.t), h('span', null, `#embed-${c.id}`)))),
-        h('p', { class: 'note' }, 'Example: ', h('span', { class: 'mono' }, base + '#embed-beam')),
-        h('p', null, 'Assignment presets: open a module, choose “Setup code”, then “Instructor: make an assignment preset”. Students paste the code to load the same inputs with your title, note and locked fields.'),
-        h('p', null, 'Stretch modules, marked with a gold edge, go beyond the course notes.'))));
+    h('div', { class: 'panel' }, h('h3', null, 'Credits'),
+      h('p', null, 'Built for ME 354 Mechanics of Materials in the Department of Mechanical Engineering, University of Washington, taught by Prof. Aniruddh Vashisth.'),
+      h('p', null, 'The modules follow the ME 354 course notes written by Prof. Lucas R. Meza. Equation and section numbers refer to those notes.'),
+      h('p', null, 'Inspired by Prof. Navid Zobeiry’s interactive ', h('a', { href: 'https://composites.uw.edu/analysis/', target: '_blank', rel: 'noopener' }, 'UW Composites Analysis'), ' tools.'),
+      h('p', { class: 'note' }, 'Material properties are typical values for teaching. Do not use them as design allowables.')));
 };
 
 /* Module: Beam Bending (Notes Ch. 2, Eq. 2.1–2.21; strain gauges App. A) */
